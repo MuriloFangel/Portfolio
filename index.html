@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Murilo Fangel | Portfólio Artístico</title>
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.css">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <!-- Cabeçalho Fixo -->
+    <header class="fixed-header">
+        <a href="#" class="logo">Murilo<span>Fangel</span></a>
+        <nav class="main-nav" id="mainNav">
+            <a href="#hero" class="nav-link">Início</a>
+            <a href="#about" class="nav-link">Sobre</a>
+            <a href="#gallery" class="nav-link">Galeria</a>
+            <a href="#contact" class="nav-link">Contato</a>
+        </nav>
+        <button class="mobile-menu-btn" id="mobileMenuBtn">
+            <i class="fas fa-bars"></i>
+        </button>
+    </header>
+
+    <!-- Seção Hero -->
+    <section id="hero">
+        <div class="hero-bg"></div>
+        <div class="hero-content" data-aos="fade-up" data-aos-duration="1000">
+            <h1 class="hero-title">Murilo Fangel</h1>
+            <p class="hero-subtitle">Estudante de Artes Visuais na UNESPAR</p>
+            
+            <div class="typewriter-container">
+                <div class="typewriter-text" id="typewriter">
+                    <span id="typewriter-content"></span>
+                    <span class="typewriter-cursor"></span>
+                </div>
+            </div>
+            
+            <div class="hero-buttons">
+                <a href="#gallery" class="btn btn-primary">Explorar Galeria</a>
+                <a href="#contact" class="btn btn-secondary">Entrar em Contato</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Seção Sobre -->
+    <section id="about">
+        <div class="section-header" data-aos="fade-up">
+            <h2 class="section-title">Sobre Mim</h2>
+            <p class="section-subtitle">Conheça minha jornada artística e habilidades técnicas</p>
+        </div>
+        <div class="about-content">
+            <div class="about-text" data-aos="fade-up">
+                <h3>Murilo Fangel de Morais</h3>
+                <p>Estudante do primeiro ano de Artes Visuais na FAP da UNESPAR em Curitiba. Natural de Indaiatuba/SP, atualmente resido no bairro Bacacheri, onde desenvolvo meus projetos artísticos.</p>
+                <p>Minha paixão pela arte se manifesta através de diversas formas de expressão, desde desenhos tradicionais até edições digitais complexas. Já trabalhei e testei dezenas de softwares de criatividade, alguns deles como <span class="software-list" id="softwareTypewriter">Adobe Photoshop</span>.</p>
+                
+                <p>Acredito que a arte é um meio poderoso de comunicação e transformação, e busco constantemente aprimorar minhas habilidades técnicas através de cursos e muita prática autodidata.</p>
+            </div>
+            <div class="skills-grid" data-aos="fade-up" data-aos-delay="200">
+                <div class="skill-category">
+                    <h4><i class="fas fa-video"></i> Edição de Vídeo</h4>
+                    <div class="skill-item"><i class="fas fa-check"></i> Adobe Premiere</div>
+                    <div class="skill-item"><i class="fas fa-check"></i> After Effects</div>
+                    <div class="skill-item"><i class="fas fa-check"></i> DaVinci Resolve</div>
+                    <div class="skill-item"><i class="fas fa-check"></i> Vegas Pro</div>
+                </div>
+                <div class="skill-category">
+                    <h4><i class="fas fa-paint-brush"></i> Design & Ilustração</h4>
+                    <div class="skill-item"><i class="fas fa-check"></i> Photoshop</div>
+                    <div class="skill-item"><i class="fas fa-check"></i> Illustrator</div>
+                    <div class="skill-item"><i class="fas fa-check"></i> Clip Studio</div>
+                    <div class="skill-item"><i class="fas fa-check"></i> Krita</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Galeria Avançada -->
+    <section id="gallery">
+        <div class="section-header" data-aos="fade-up">
+            <h2 class="section-title">Meus Trabalhos</h2>
+            <p class="section-subtitle">Explore minha produção artística em diferentes mídias</p>
+        </div>
+        
+        <div class="gallery-container">
+            <div class="gallery-tabs" data-aos="fade-up" data-aos-delay="200">
+                <button class="gallery-tab active" data-section="video">Vídeo</button>
+                <button class="gallery-tab" data-section="digital">Arte Digital</button>
+                <button class="gallery-tab" data-section="traditional">Arte Tradicional</button>
+                <button class="gallery-tab" data-section="graphic">Manipulação Gráfica</button>
+                <button class="gallery-tab" data-section="photo">Fotografia</button>
+            </div>
+            
+            <!-- Seção de Vídeos -->
+            <div class="gallery-section active" id="video-section" data-aos="fade-up" data-aos-delay="400">
+                <div class="swiper">
+                    <div class="swiper-wrapper" id="video-gallery">
+                        <!-- Itens serão carregados via JavaScript -->
+                    </div>
+                    <div class="swiper-button-next"></div>
+                    <div class="swiper-button-prev"></div>
+                </div>
+            </div>
+            
+            <!-- Seção de Arte Digital -->
+            <div class="gallery-section" id="digital-section">
+                <div class="swiper">
+                    <div class="swiper-wrapper" id="digital-gallery">
+                        <!-- Itens serão carregados via JavaScript -->
+                    </div>
+                    <div class="swiper-button-next"></div>
+                    <div class="swiper-button-prev"></div>
+                </div>
+            </div>
+            
+            <!-- Seção de Arte Tradicional -->
+            <div class="gallery-section" id="traditional-section">
+                <div class="swiper">
+                    <div class="swiper-wrapper" id="traditional-gallery">
+                        <!-- Itens serão carregados via JavaScript -->
+                    </div>
+                    <div class="swiper-button-next"></div>
+                    <div class="swiper-button-prev"></div>
+                </div>
+            </div>
+            
+            <!-- Seção de Manipulação Gráfica -->
+            <div class="gallery-section" id="graphic-section">
+                <div class="swiper">
+                    <div class="swiper-wrapper" id="graphic-gallery">
+                        <!-- Itens serão carregados via JavaScript -->
+                    </div>
+                    <div class="swiper-button-next"></div>
+                    <div class="swiper-button-prev"></div>
+                </div>
+            </div>
+            
+            <!-- Seção de Fotografia -->
+            <div class="gallery-section" id="photo-section">
+                <div class="swiper">
+                    <div class="swiper-wrapper" id="photo-gallery">
+                        <!-- Itens serão carregados via JavaScript -->
+                    </div>
+                    <div class="swiper-button-next"></div>
+                    <div class="swiper-button-prev"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Seção Contato -->
+    <section id="contact">
+        <div class="section-header" data-aos="fade-up">
+            <h2 class="section-title">Entre em Contato</h2>
+            <p class="section-subtitle">Vamos conversar sobre arte, projetos ou colaborações</p>
+        </div>
+        
+        <div class="contact-container">
+            <div class="contact-info" data-aos="fade-up">
+                <h3>Informações de Contato</h3>
+                <div class="contact-items">
+                    <div class="contact-item">
+                        <i class="fas fa-envelope"></i>
+                        <a href="mailto:murilofangel1@gmail.com" class="contact-link">murilofangel1@gmail.com</a>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fab fa-instagram"></i>
+                        <a href="https://www.instagram.com/muri_lo.fm/" class="contact-link" target="_blank">@muri_lo.fm</a>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fab fa-youtube"></i>
+                        <a href="https://www.youtube.com/@mu.ri.lo.f" class="contact-link" target="_blank">@mu.ri.lo.f</a>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <span>Bacacheri, Curitiba - PR</span>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fas fa-university"></i>
+                        <span>UNESPAR - FAP | Artes Visuais</span>
+                    </div>
+                </div>
+            </div>
+            
+            <form class="contact-form" id="contact-form" data-aos="fade-up" data-aos-delay="200">
+                <div class="form-group">
+                    <label for="name">Nome</label>
+                    <input type="text" id="name" class="form-control" required>
+                </div>
+                <div class="form-group">
+                    <label for="interest">Tenho interesse em</label>
+                    <input type="text" id="interest" class="form-control" required>
+                </div>
+                <div class="form-group">
+                    <label for="message">Mensagem</label>
+                    <textarea id="message" class="form-control" required></textarea>
+                </div>
+                <button type="submit" class="btn btn-primary form-btn">
+                    <i class="fab fa-whatsapp"></i> Enviar via WhatsApp
+                </button>
+            </form>
+        </div>
+    </section>
+
+    <!-- Rodapé -->
+    <footer>
+        <div class="footer-content">
+            <a href="#" class="footer-logo">Murilo<span>Fangel</span></a>
+            <div class="footer-links">
+                <a href="#hero" class="footer-link">Início</a>
+                <a href="#about" class="footer-link">Sobre</a>
+                <a href="#gallery" class="footer-link">Galeria</a>
+                <a href="#contact" class="footer-link">Contato</a>
+            </div>
+            <div class="social-links">
+                <a href="https://www.instagram.com/muri_lo.fm/" class="social-link" target="_blank"><i class="fab fa-instagram"></i></a>
+                <a href="https://www.youtube.com/@mu.ri.lo.f" class="social-link" target="_blank"><i class="fab fa-youtube"></i></a>
+                <a href="#contact-form" class="social-link"><i class="fab fa-whatsapp"></i></a>
+            </div>
+            <p class="copyright">© 2023 Murilo Fangel. Todos os direitos reservados.</p>
+        </div>
+    </footer>
+
+    <!-- Lightbox -->
+    <div class="lightbox" id="lightbox">
+        <span class="close-lightbox">&times;</span>
+        <img class="lightbox-content" id="lightboxImg">
+        <div class="lightbox-controls">
+            <button class="lightbox-btn" id="prevBtn"><i class="fas fa-chevron-left"></i></button>
+            <button class="lightbox-btn" id="nextBtn"><i class="fas fa-chevron-right"></i></button>
+        </div>
+    </div>
+
+    <!-- Dark Mode Toggle -->
+    <div class="mode-toggle" id="modeToggle">
+        <i class="fas fa-moon"></i>
+    </div>
+
+    <!-- Scripts -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.js"></script>
+    <script src="js/script.js"></script>
+</body>
+</html>

@@ -1,0 +1,46 @@
+{
+    "videos": [
+        {
+            "file": "videos+Video foda+esse video é massa.mp4",
+            "type": "video",
+            "mediaType": "video/mp4",
+            "title": "Video foda",
+            "description": "esse video é massa"
+        }
+    ],
+    "digital": [
+        {
+            "file": "digital+Video foda+esse video é massa demais.mp4",
+            "type": "video",
+            "mediaType": "video/mp4",
+            "title": "Video foda",
+            "description": "esse video é massa demais"
+        }
+    ],
+    "traditional": [
+        {
+            "file": "traditional+Desenho+Desenho do amor da minha vida.jpg",
+            "type": "image",
+            "mediaType": "image/jpeg",
+            "title": "Desenho",
+            "description": "Desenho do amor da minha vida"
+        },
+        {
+            "file": "traditional+flor+isso é uma flor tem pexe.jpg",
+            "type": "image",
+            "mediaType": "image/jpeg",
+            "title": "Flor",
+            "description": "isso é uma flor tem pexe"
+        }
+    ],
+    "graphic": [],
+    "photo": [
+        {
+            "file": "photo+testemuito foda+foda&games.jpg",
+            "type": "image",
+            "mediaType": "image/jpeg",
+            "title": "Testemuito foda",
+            "description": "foda&games"
+        }
+    ]
+}

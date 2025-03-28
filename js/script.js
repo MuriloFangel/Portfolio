@@ -1,4 +1,3 @@
-// Configuração Inicial
 document.addEventListener('DOMContentLoaded', function() {
     // Inicializa AOS (Animações no Scroll)
     AOS.init({
@@ -7,7 +6,7 @@ document.addEventListener('DOMContentLoaded', function() {
         once: false,
         mirror: true
     });
-    
+
     // Efeito Máquina de Escrever - Título Principal
     const typewriterElement = document.getElementById('typewriter-content');
     const typewriterCursor = document.querySelector('.typewriter-cursor');
@@ -27,26 +26,23 @@ document.addEventListener('DOMContentLoaded', function() {
     let textIndex = 0;
     let charIndex = 0;
     let isDeleting = false;
-    let typingSpeed = 100;
+    let typingSpeed = 200;
     let pauseTime = 1500;
     
     function typeWriter() {
         const currentText = texts[textIndex];
         
-        // Mostra cursor apenas quando estiver digitando ou na pausa após digitar
         if (!isDeleting && charIndex < currentText.length) {
             typewriterCursor.style.opacity = '1';
             typewriterElement.textContent = currentText.substring(0, charIndex + 1);
             charIndex++;
             typingSpeed = charIndex < 5 ? 150 : 100;
         } 
-        // Pausa após digitar
         else if (!isDeleting && charIndex === currentText.length) {
             typewriterCursor.style.opacity = '1';
             isDeleting = true;
             typingSpeed = pauseTime;
         } 
-        // Apagando o texto
         else if (isDeleting) {
             typewriterCursor.style.opacity = '1';
             typewriterElement.textContent = currentText.substring(0, charIndex - 1);
@@ -63,34 +59,8 @@ document.addEventListener('DOMContentLoaded', function() {
         setTimeout(typeWriter, typingSpeed);
     }
     
-    // Inicia o efeito
     setTimeout(typeWriter, 1000);
-    
-    // Efeito de troca de softwares (sem cursor)
-    const softwareTypewriter = document.getElementById('softwareTypewriter');
-    const softwares = [
-        "Adobe Photoshop",
-        "Adobe Premiere Pro",
-        "Adobe After Effects",
-        "Adobe Illustrator",
-        "Clip Studio Paint",
-        "DaVinci Resolve",
-        "e muitos outros"
-    ];
-    
-    let softwareIndex = 0;
-    
-    function changeSoftware() {
-        softwareTypewriter.textContent = softwares[softwareIndex];
-        softwareIndex = (softwareIndex + 1) % softwares.length;
-        
-        const speed = softwareIndex === softwares.length - 1 ? 3000 : 2000;
-        setTimeout(changeSoftware, speed);
-    }
-    
-    // Inicia o efeito
-    setTimeout(changeSoftware, 1500);
-    
+
     // Menu Mobile
     const mobileMenuBtn = document.getElementById('mobileMenuBtn');
     const mainNav = document.getElementById('mainNav');
@@ -109,127 +79,9 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     });
     
-    // Carrega a galeria de imagens dinamicamente
-    function loadGalleryItems() {
-        // Esta função seria implementada para carregar arquivos de um diretório
-        // Como exemplo, vamos usar imagens placeholder
-        
-        const categories = {
-            'video': [
-                { type: 'video', src: 'https://sample-videos.com/video123/mp4/720/big_buck_bunny_720p_1mb.mp4', poster: 'https://source.unsplash.com/random/800x600?video,editing', title: 'Projeto de Edição de Vídeo', description: 'Editado no Adobe Premiere com efeitos no After Effects' },
-                { type: 'video', src: 'https://sample-videos.com/video123/mp4/720/big_buck_bunny_720p_1mb.mp4', poster: 'https://source.unsplash.com/random/800x600?video,animation', title: 'Animação Digital', description: 'Criada no Adobe After Effects e Animate' }
-            ],
-            'digital': [
-                { type: 'image', src: 'https://source.unsplash.com/random/800x600?digital-art,illustration', title: 'Ilustração Digital', description: 'Criada no Clip Studio Paint' },
-                { type: 'image', src: 'https://source.unsplash.com/random/800x600?digital-art,concept', title: 'Concept Art', description: 'Desenvolvimento de personagens' }
-            ],
-            'traditional': [
-                { type: 'image', src: 'https://source.unsplash.com/random/800x600?drawing,pencil', title: 'Desenho a Lápis', description: 'Técnica tradicional em papel' },
-                { type: 'image', src: 'https://source.unsplash.com/random/800x600?painting,watercolor', title: 'Aquarela', description: 'Pintura em aquarela sobre papel' }
-            ],
-            'graphic': [
-                { type: 'image', src: 'https://source.unsplash.com/random/800x600?photo-manipulation', title: 'Manipulação Fotográfica', description: 'Criada no Adobe Photoshop' },
-                { type: 'image', src: 'https://source.unsplash.com/random/800x600?graphic-design', title: 'Design Gráfico', description: 'Criado no Adobe Illustrator' }
-            ],
-            'photo': [
-                { type: 'image', src: 'https://source.unsplash.com/random/800x600?photography,urban', title: 'Série Urbana', description: 'Exploração de arquitetura e espaços urbanos' },
-                { type: 'image', src: 'https://source.unsplash.com/random/800x600?photography,portrait', title: 'Retratos', description: 'Série de retratos com iluminação natural' }
-            ]
-        };
-        
-        for (const [category, items] of Object.entries(categories)) {
-            const galleryElement = document.getElementById(`${category}-gallery`);
-            
-            items.forEach(item => {
-                const slide = document.createElement('div');
-                slide.className = 'swiper-slide';
-                
-                if (item.type === 'video') {
-                    slide.innerHTML = `
-                        <video controls poster="${item.poster}">
-                            <source src="${item.src}" type="video/mp4">
-                            Seu navegador não suporta vídeos.
-                        </video>
-                        <div class="media-caption">
-                            <h3>${item.title}</h3>
-                            <p>${item.description}</p>
-                        </div>
-                    `;
-                } else {
-                    slide.innerHTML = `
-                        <img src="${item.src}" alt="${item.title}">
-                        <div class="media-caption">
-                            <h3>${item.title}</h3>
-                            <p>${item.description}</p>
-                        </div>
-                    `;
-                }
-                
-                if (galleryElement) {
-                    galleryElement.appendChild(slide);
-                }
-            });
-        }
-    }
-    
-    // Inicializa todos os Swipers
-    const swipers = [];
-    
-    function initSwipers() {
-        document.querySelectorAll('.swiper').forEach((swiperEl, index) => {
-            swipers[index] = new Swiper(swiperEl, {
-                loop: true,
-                navigation: {
-                    nextEl: swiperEl.querySelector('.swiper-button-next'),
-                    prevEl: swiperEl.querySelector('.swiper-button-prev'),
-                },
-                effect: 'coverflow',
-                grabCursor: true,
-                centeredSlides: true,
-                slidesPerView: 'auto',
-                coverflowEffect: {
-                    rotate: 20,
-                    stretch: 0,
-                    depth: 200,
-                    modifier: 1,
-                    slideShadows: true,
-                },
-                keyboard: {
-                    enabled: true,
-                },
-            });
-        });
-    }
-    
-    // Carrega a galeria e inicializa os Swipers
+    // Carrega a galeria
     loadGalleryItems();
-    initSwipers();
-    
-    // Controle das seções da galeria
-    const galleryTabs = document.querySelectorAll('.gallery-tab');
-    const gallerySections = document.querySelectorAll('.gallery-section');
-    
-    galleryTabs.forEach(tab => {
-        tab.addEventListener('click', function() {
-            // Remove classe active de todas as tabs
-            galleryTabs.forEach(t => t.classList.remove('active'));
-            // Adiciona classe active na tab clicada
-            this.classList.add('active');
-            
-            // Esconde todas as seções
-            gallerySections.forEach(section => {
-                section.classList.remove('active');
-            });
-            
-            // Mostra a seção correspondente
-            const sectionId = this.dataset.section + '-section';
-            document.getElementById(sectionId).classList.add('active');
-            
-            // Atualiza o Swiper correspondente
-            swipers.forEach(swiper => swiper.update());
-        });
-    });
-    
+
     // Lightbox
     const lightbox = document.getElementById('lightbox');
     const lightboxImg = document.getElementById('lightboxImg');
@@ -237,16 +89,8 @@ document.addEventListener('DOMContentLoaded', function() {
     const prevBtn = document.getElementById('prevBtn');
     const nextBtn = document.getElementById('nextBtn');
     
-    // Array para armazenar todas as imagens da galeria
     let galleryImages = [];
     let currentImageIndex = 0;
-    
-    // Atualiza a lista de imagens quando muda de seção
-    function updateGalleryImages() {
-        const activeSection = document.querySelector('.gallery-section.active');
-        galleryImages = Array.from(activeSection.querySelectorAll('img'));
-        currentImageIndex = 0;
-    }
     
     // Abre lightbox quando uma imagem é clicada
     document.addEventListener('click', function(e) {
@@ -302,7 +146,6 @@ document.addEventListener('DOMContentLoaded', function() {
         document.body.classList.toggle('light-mode');
         
         if (document.body.classList.contains('light-mode')) {
-            // Atualiza variáveis para modo claro
             document.documentElement.style.setProperty('--bg', 'var(--light-bg)');
             document.documentElement.style.setProperty('--secondary', 'var(--light-secondary)');
             document.documentElement.style.setProperty('--text', 'var(--light-text)');
@@ -312,7 +155,6 @@ document.addEventListener('DOMContentLoaded', function() {
             document.documentElement.style.setProperty('--hero-overlay', 'var(--light-hero-overlay)');
             modeToggle.innerHTML = '<i class="fas fa-sun"></i>';
         } else {
-            // Atualiza variáveis para modo escuro
             document.documentElement.style.setProperty('--bg', 'var(--dark-bg)');
             document.documentElement.style.setProperty('--secondary', 'var(--dark-secondary)');
             document.documentElement.style.setProperty('--text', 'var(--dark-text)');
@@ -367,4 +209,84 @@ document.addEventListener('DOMContentLoaded', function() {
         
         window.open(whatsappUrl, '_blank');
     });
+
+    // Função para carregar a galeria
+    async function loadGalleryItems() {
+        try {
+            const response = await fetch('assets/gallery-content.json');
+            if (!response.ok) throw new Error('Erro ao carregar a galeria');
+            
+            const galleryData = await response.json();
+
+            // Processa cada categoria
+            for (const [category, items] of Object.entries(galleryData)) {
+                const galleryElement = document.getElementById(`${category}-gallery`);
+                if (!galleryElement) continue;
+
+                items.forEach(item => {
+                    const slide = document.createElement('div');
+                    slide.className = 'swiper-slide';
+
+                    const mediaElement = item.type === 'video' 
+                        ? `<video controls ${item.poster ? `poster="assets/${item.poster}"` : ''}>
+                              <source src="assets/${item.file}" type="${item.mediaType}">
+                              Seu navegador não suporta este vídeo.
+                           </video>`
+                        : `<img src="assets/${item.file}" alt="${item.title}">`;
+
+                    slide.innerHTML = `
+                        ${mediaElement}
+                        <div class="media-caption">
+                            <h3>${item.title}</h3>
+                            <p>${item.description}</p>
+                        </div>
+                    `;
+
+                    galleryElement.appendChild(slide);
+                });
+            }
+
+            // Inicializa todos os Swipers
+            initSwipers();
+
+        } catch (error) {
+            console.error('Erro ao carregar a galeria:', error);
+            // Pode adicionar uma mensagem de erro na interface
+        }
+    }
+
+    // Inicializa os Swipers
+    function initSwipers() {
+        const swipers = [];
+        document.querySelectorAll('.swiper').forEach((swiperEl, index) => {
+            swipers[index] = new Swiper(swiperEl, {
+                loop: true,
+                navigation: {
+                    nextEl: swiperEl.querySelector('.swiper-button-next'),
+                    prevEl: swiperEl.querySelector('.swiper-button-prev'),
+                },
+                effect: 'coverflow',
+                grabCursor: true,
+                centeredSlides: true,
+                slidesPerView: 'auto',
+                coverflowEffect: {
+                    rotate: 20,
+                    stretch: 0,
+                    depth: 200,
+                    modifier: 1,
+                    slideShadows: true,
+                },
+                keyboard: {
+                    enabled: true,
+                },
+            });
+        });
+    }
+
+    // Atualiza a lista de imagens para o lightbox
+    function updateGalleryImages() {
+        const activeSection = document.querySelector('.gallery-section.active');
+        galleryImages = Array.from(activeSection.querySelectorAll('img'));
+        currentImageIndex = 0;
+    }
 });

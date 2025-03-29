@@ -1,5 +1,5 @@
 document.addEventListener('DOMContentLoaded', function() {
-    // Inicializa AOS (Animações no Scroll)
+    // Initialize AOS (Animate On Scroll)
     AOS.init({
         duration: 800,
         easing: 'ease-out-quart',
@@ -7,7 +7,7 @@ document.addEventListener('DOMContentLoaded', function() {
         mirror: true
     });
 
-    // Efeito Máquina de Escrever - Título Principal
+    // Typewriter Effect - Main Title
     const typewriterElement = document.getElementById('typewriter-content');
     const typewriterCursor = document.querySelector('.typewriter-cursor');
     const texts = [
@@ -26,7 +26,7 @@ document.addEventListener('DOMContentLoaded', function() {
     let textIndex = 0;
     let charIndex = 0;
     let isDeleting = false;
-    let typingSpeed = 200;
+    let typingSpeed = 100;
     let pauseTime = 1500;
     
     function typeWriter() {
@@ -61,7 +61,7 @@ document.addEventListener('DOMContentLoaded', function() {
     
     setTimeout(typeWriter, 1000);
 
-    // Menu Mobile
+    // Mobile Menu
     const mobileMenuBtn = document.getElementById('mobileMenuBtn');
     const mainNav = document.getElementById('mainNav');
     
@@ -71,7 +71,7 @@ document.addEventListener('DOMContentLoaded', function() {
             '<i class="fas fa-times"></i>' : '<i class="fas fa-bars"></i>';
     });
     
-    // Fecha o menu quando um link é clicado
+    // Close mobile menu when clicking a link
     document.querySelectorAll('.nav-link').forEach(link => {
         link.addEventListener('click', function() {
             mainNav.classList.remove('active');
@@ -79,10 +79,14 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     });
     
-    // Carrega a galeria
-    loadGalleryItems();
+    // Load gallery items
+    loadGalleryItems().then(() => {
+        console.log('Gallery loaded successfully');
+    }).catch(error => {
+        console.error('Failed to load gallery:', error);
+    });
 
-    // Lightbox
+    // Lightbox functionality
     const lightbox = document.getElementById('lightbox');
     const lightboxImg = document.getElementById('lightboxImg');
     const closeLightbox = document.querySelector('.close-lightbox');
@@ -92,22 +96,24 @@ document.addEventListener('DOMContentLoaded', function() {
     let galleryImages = [];
     let currentImageIndex = 0;
     
-    // Abre lightbox quando uma imagem é clicada
+    // Open lightbox when clicking an image
     document.addEventListener('click', function(e) {
         if (e.target.tagName === 'IMG' && e.target.closest('.swiper-slide')) {
             updateGalleryImages();
             currentImageIndex = galleryImages.indexOf(e.target);
             lightboxImg.src = e.target.src;
             lightbox.classList.add('active');
+            document.body.style.overflow = 'hidden';
         }
     });
     
-    // Fecha lightbox
+    // Close lightbox
     closeLightbox.addEventListener('click', function() {
         lightbox.classList.remove('active');
+        document.body.style.overflow = '';
     });
     
-    // Navegação entre imagens no lightbox
+    // Navigation between images in lightbox
     prevBtn.addEventListener('click', function() {
         currentImageIndex = (currentImageIndex - 1 + galleryImages.length) % galleryImages.length;
         lightboxImg.src = galleryImages[currentImageIndex].src;
@@ -118,18 +124,20 @@ document.addEventListener('DOMContentLoaded', function() {
         lightboxImg.src = galleryImages[currentImageIndex].src;
     });
     
-    // Fecha lightbox ao clicar no fundo
+    // Close lightbox when clicking background
     lightbox.addEventListener('click', function(e) {
         if (e.target === lightbox) {
             lightbox.classList.remove('active');
+            document.body.style.overflow = '';
         }
     });
     
-    // Navegação por teclado no lightbox
+    // Keyboard navigation in lightbox
     document.addEventListener('keydown', function(e) {
         if (lightbox.classList.contains('active')) {
             if (e.key === 'Escape') {
                 lightbox.classList.remove('active');
+                document.body.style.overflow = '';
             } else if (e.key === 'ArrowLeft') {
                 currentImageIndex = (currentImageIndex - 1 + galleryImages.length) % galleryImages.length;
                 lightboxImg.src = galleryImages[currentImageIndex].src;
@@ -166,7 +174,7 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     });
     
-    // Navegação Suave
+    // Smooth Scrolling
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
         anchor.addEventListener('click', function(e) {
             e.preventDefault();
@@ -183,7 +191,7 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     });
     
-    // Efeito de Scroll no Header
+    // Header Scroll Effect
     window.addEventListener('scroll', function() {
         const header = document.querySelector('.fixed-header');
         if (window.scrollY > 100) {
@@ -193,7 +201,7 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     });
     
-    // Formulário de WhatsApp
+    // WhatsApp Form
     const contactForm = document.getElementById('contact-form');
     
     contactForm.addEventListener('submit', function(e) {
@@ -210,83 +218,141 @@ document.addEventListener('DOMContentLoaded', function() {
         window.open(whatsappUrl, '_blank');
     });
 
-    // Função para carregar a galeria
+    // Load Gallery Items with improved error handling
     async function loadGalleryItems() {
+        console.log('[Gallery] Starting to load gallery items...');
+        
         try {
             const response = await fetch('assets/gallery-content.json');
-            if (!response.ok) throw new Error('Erro ao carregar a galeria');
+            console.log('[Gallery] Response status:', response.status);
+            
+            if (!response.ok) {
+                throw new Error(`HTTP error! status: ${response.status}`);
+            }
             
             const galleryData = await response.json();
+            console.log('[Gallery] Data loaded:', galleryData);
 
-            // Processa cada categoria
+            // Process each category
             for (const [category, items] of Object.entries(galleryData)) {
                 const galleryElement = document.getElementById(`${category}-gallery`);
-                if (!galleryElement) continue;
+                if (!galleryElement) {
+                    console.warn(`[Gallery] Element not found for category: ${category}`);
+                    continue;
+                }
 
+                // Clear existing content
+                galleryElement.innerHTML = '';
+                
                 items.forEach(item => {
-                    const slide = document.createElement('div');
-                    slide.className = 'swiper-slide';
+                    try {
+                        const slide = document.createElement('div');
+                        slide.className = 'swiper-slide';
 
-                    const mediaElement = item.type === 'video' 
-                        ? `<video controls ${item.poster ? `poster="assets/${item.poster}"` : ''}>
-                              <source src="assets/${item.file}" type="${item.mediaType}">
-                              Seu navegador não suporta este vídeo.
-                           </video>`
-                        : `<img src="assets/${item.file}" alt="${item.title}">`;
+                        // Validate item properties
+                        if (!item.file || !item.type || !item.mediaType || !item.title) {
+                            console.warn('[Gallery] Invalid item format:', item);
+                            return;
+                        }
 
-                    slide.innerHTML = `
-                        ${mediaElement}
-                        <div class="media-caption">
-                            <h3>${item.title}</h3>
-                            <p>${item.description}</p>
-                        </div>
-                    `;
+                        const mediaPath = `assets/${item.file}`;
+                        console.log(`[Gallery] Loading media from: ${mediaPath}`);
 
-                    galleryElement.appendChild(slide);
+                        const mediaElement = item.type === 'video' 
+                            ? `<video controls ${item.poster ? `poster="assets/${item.poster}"` : ''}>
+                                  <source src="${mediaPath}" type="${item.mediaType}">
+                                  Seu navegador não suporta este vídeo.
+                               </video>`
+                            : `<img src="${mediaPath}" alt="${item.title}" loading="lazy">`;
+
+                        slide.innerHTML = `
+                            ${mediaElement}
+                            <div class="media-caption">
+                                <h3>${item.title}</h3>
+                                <p>${item.description || ''}</p>
+                            </div>
+                        `;
+
+                        galleryElement.appendChild(slide);
+                    } catch (error) {
+                        console.error(`[Gallery] Error creating slide for item:`, item, error);
+                    }
                 });
             }
 
-            // Inicializa todos os Swipers
+            // Initialize Swipers after loading
             initSwipers();
+            return galleryData;
 
         } catch (error) {
-            console.error('Erro ao carregar a galeria:', error);
-            // Pode adicionar uma mensagem de erro na interface
+            console.error('[Gallery] Failed to load gallery:', error);
+            
+            // Show error message to user
+            const galleryContainer = document.getElementById('gallery');
+            if (galleryContainer) {
+                galleryContainer.innerHTML += `
+                    <div class="error-message">
+                        <p>Ocorreu um erro ao carregar a galeria. Por favor, tente recarregar a página.</p>
+                        <button onclick="window.location.reload()">Recarregar</button>
+                    </div>
+                `;
+            }
+            
+            return {
+                videos: [],
+                digital: [],
+                traditional: [],
+                graphic: [],
+                photo: []
+            };
         }
     }
 
-    // Inicializa os Swipers
+    // Initialize Swipers
     function initSwipers() {
+        console.log('[Gallery] Initializing swipers...');
         const swipers = [];
+        
         document.querySelectorAll('.swiper').forEach((swiperEl, index) => {
-            swipers[index] = new Swiper(swiperEl, {
-                loop: true,
-                navigation: {
-                    nextEl: swiperEl.querySelector('.swiper-button-next'),
-                    prevEl: swiperEl.querySelector('.swiper-button-prev'),
-                },
-                effect: 'coverflow',
-                grabCursor: true,
-                centeredSlides: true,
-                slidesPerView: 'auto',
-                coverflowEffect: {
-                    rotate: 20,
-                    stretch: 0,
-                    depth: 200,
-                    modifier: 1,
-                    slideShadows: true,
-                },
-                keyboard: {
-                    enabled: true,
-                },
-            });
+            try {
+                swipers[index] = new Swiper(swiperEl, {
+                    loop: true,
+                    navigation: {
+                        nextEl: swiperEl.querySelector('.swiper-button-next'),
+                        prevEl: swiperEl.querySelector('.swiper-button-prev'),
+                    },
+                    effect: 'coverflow',
+                    grabCursor: true,
+                    centeredSlides: true,
+                    slidesPerView: 'auto',
+                    coverflowEffect: {
+                        rotate: 20,
+                        stretch: 0,
+                        depth: 200,
+                        modifier: 1,
+                        slideShadows: true,
+                    },
+                    keyboard: {
+                        enabled: true,
+                    },
+                });
+                console.log(`[Gallery] Swiper ${index} initialized successfully`);
+            } catch (error) {
+                console.error(`[Gallery] Error initializing swiper ${index}:`, error);
+            }
         });
     }
 
-    // Atualiza a lista de imagens para o lightbox
+    // Update images list for lightbox
     function updateGalleryImages() {
         const activeSection = document.querySelector('.gallery-section.active');
+        if (!activeSection) {
+            console.warn('[Gallery] No active gallery section found');
+            return;
+        }
+        
         galleryImages = Array.from(activeSection.querySelectorAll('img'));
         currentImageIndex = 0;
+        console.log(`[Gallery] Updated lightbox with ${galleryImages.length} images`);
     }
 });

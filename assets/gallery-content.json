@@ -6,22 +6,22 @@
             "mediaType": "video/mp4",
             "title": "Video foda",
             "description": "esse video é massa"
+        },
+        {
+            "file": "videos+Video massa+esse video é massa demais.mp4",
+            "type": "video",
+            "mediaType": "video/mp4",
+            "title": "Video massa",
+            "description": "esse video é massa demais"
         }
     ],
     "digital": [
         {
-            "file": "digital+Video foda+esse video é massa demais.mp4",
-            "type": "video",
-            "mediaType": "video/mp4",
-            "title": "Video foda",
-            "description": "esse video é massa demais"
-        },
-        {
-            "file": "digital+isso nao e´+nao e digital.jpg",
+            "file": "digital+Arte Digital+ilustracao digital.jpg",
             "type": "image",
             "mediaType": "image/jpeg",
-            "title": "isso nao e´",
-            "description": "nao e digital"
+            "title": "Arte Digital",
+            "description": "ilustracao digital"
         }
     ],
     "traditional": [
@@ -31,31 +31,16 @@
             "mediaType": "image/jpeg",
             "title": "Desenho",
             "description": "Desenho do amor da minha vida"
-        },
-        {
-            "file": "traditional+flor+isso é uma flor tem pexe.jpg",
-            "type": "image",
-            "mediaType": "image/jpeg",
-            "title": "Flor",
-            "description": "isso é uma flor tem pexe"
         }
     ],
-    "graphic": [
-        {
-            "file": "graphic+não é+era mentierea.jpg",
-            "type": "image",
-            "mediaType": "image/jpeg",
-            "title": "Não é",
-            "description": "era mentierea"
-        }
-    ],
+    "graphic": [],
     "photo": [
         {
-            "file": "photo+testemuito foda+foda&games.jpg",
+            "file": "photo+Teste+Foto de teste.jpg",
             "type": "image",
             "mediaType": "image/jpeg",
-            "title": "Testemuito foda",
-            "description": "foda&games"
+            "title": "Teste",
+            "description": "Foto de teste"
         }
     ]
 }

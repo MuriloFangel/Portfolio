@@ -15,6 +15,13 @@
             "mediaType": "video/mp4",
             "title": "Video foda",
             "description": "esse video é massa demais"
+        },
+        {
+            "file": "digital+isso nao e´+nao e digital.jpg",
+            "type": "image",
+            "mediaType": "image/jpeg",
+            "title": "isso nao e´",
+            "description": "nao e digital"
         }
     ],
     "traditional": [
@@ -33,7 +40,15 @@
             "description": "isso é uma flor tem pexe"
         }
     ],
-    "graphic": [],
+    "graphic": [
+        {
+            "file": "graphic+não é+era mentierea.jpg",
+            "type": "image",
+            "mediaType": "image/jpeg",
+            "title": "Não é",
+            "description": "era mentierea"
+        }
+    ],
     "photo": [
         {
             "file": "photo+testemuito foda+foda&games.jpg",

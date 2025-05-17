@@ -3,20 +3,20 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Murilo Fangel | Portfólio Artístico</title>
+    <title>Murilo Fangel | Portfólio Artístico e Profissional</title>
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.css">
     <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
-    <!-- Cabeçalho Fixo -->
     <header class="fixed-header">
-        <a href="#" class="logo">Murilo<span>Fangel</span></a>
+        <a href="#hero" class="logo">Murilo<span>Fangel</span></a>
         <nav class="main-nav" id="mainNav">
             <a href="#hero" class="nav-link">Início</a>
-            <a href="#about" class="nav-link">Sobre</a>
-            <a href="#gallery" class="nav-link">Galeria</a>
+            <a href="#about" class="nav-link">Sobre Mim</a>
+            <a href="#portfolio" class="nav-link">Portfólio</a>
+            <a href="#experiences" class="nav-link">Experiências</a>
             <a href="#contact" class="nav-link">Contato</a>
         </nav>
         <button class="mobile-menu-btn" id="mobileMenuBtn">
@@ -24,12 +24,11 @@
         </button>
     </header>
 
-    <!-- Seção Hero -->
     <section id="hero">
         <div class="hero-bg"></div>
         <div class="hero-content" data-aos="fade-up" data-aos-duration="1000">
             <h1 class="hero-title">Murilo Fangel</h1>
-            <p class="hero-subtitle">Estudante de Artes Visuais na UNESPAR</p>
+            <p class="hero-subtitle">Artista Visual & Criador Audiovisual</p>
             
             <div class="typewriter-container">
                 <div class="typewriter-text" id="typewriter">
@@ -39,110 +38,157 @@
             </div>
             
             <div class="hero-buttons">
-                <a href="#gallery" class="btn btn-primary">Explorar Galeria</a>
+                <a href="#portfolio" class="btn btn-primary">Explorar Portfólio</a>
                 <a href="#contact" class="btn btn-secondary">Entrar em Contato</a>
             </div>
         </div>
     </section>
 
-    <!-- Seção Sobre -->
     <section id="about">
         <div class="section-header" data-aos="fade-up">
             <h2 class="section-title">Sobre Mim</h2>
-            <p class="section-subtitle">Conheça minha jornada artística e habilidades técnicas</p>
         </div>
         <div class="about-content">
             <div class="about-text" data-aos="fade-up">
-                <h3>Murilo Fangel de Morais</h3>
-                <p>Estudante do primeiro ano de Artes Visuais na FAP da UNESPAR em Curitiba. Natural de Indaiatuba/SP, atualmente resido no bairro Bacacheri, onde desenvolvo meus projetos artísticos.</p>
-                <p>Minha paixão pela arte se manifesta através de diversas formas de expressão, desde desenhos tradicionais até edições digitais complexas. Já trabalhei e testei dezenas de softwares de criatividade, alguns deles como <span class="software-list" id="softwareTypewriter">Adobe Photoshop</span>.</p>
-                
-                <p>Acredito que a arte é um meio poderoso de comunicação e transformação, e busco constantemente aprimorar minhas habilidades técnicas através de cursos e muita prática autodidata.</p>
+                <h3>Olá! Sou Murilo Fangel.</h3>
+                <p>Atualmente, curso o primeiro ano de Artes Visuais na UNESPAR – FAP (Escola de Artes do Paraná), com previsão de conclusão em 2025. Resido em Curitiba/PR, no bairro Bacacheri, onde desenvolvo meus projetos e busco aprimorar minhas paixões: a criação visual e a exploração de novas mídias.</p>
+                <p>Estou em busca de oportunidades de estágio onde possa aplicar e expandir minhas habilidades, com foco especial nas áreas de audiovisual e gestão de redes sociais. Sou dinâmico, com grande facilidade para aprender e me adaptar a novas ferramentas e fluxos de trabalho, incluindo o uso de Inteligência Artificial para otimizar a criação e produção de conteúdo.</p>
+                <p>Acredito na arte como um poderoso meio de comunicação e transformação, e estou sempre em busca de aprimorar minhas habilidades técnicas através de cursos e muita prática autodidata.</p>
             </div>
-            <div class="skills-grid" data-aos="fade-up" data-aos-delay="200">
-                <div class="skill-category">
-                    <h4><i class="fas fa-video"></i> Edição de Vídeo</h4>
-                    <div class="skill-item"><i class="fas fa-check"></i> Adobe Premiere</div>
-                    <div class="skill-item"><i class="fas fa-check"></i> After Effects</div>
-                    <div class="skill-item"><i class="fas fa-check"></i> DaVinci Resolve</div>
-                    <div class="skill-item"><i class="fas fa-check"></i> Vegas Pro</div>
-                </div>
-                <div class="skill-category">
-                    <h4><i class="fas fa-paint-brush"></i> Design & Ilustração</h4>
-                    <div class="skill-item"><i class="fas fa-check"></i> Photoshop</div>
-                    <div class="skill-item"><i class="fas fa-check"></i> Illustrator</div>
-                    <div class="skill-item"><i class="fas fa-check"></i> Clip Studio</div>
-                    <div class="skill-item"><i class="fas fa-check"></i> Krita</div>
+            
+            <div class="skills-section" data-aos="fade-up" data-aos-delay="200">
+                <h3 class="skills-title">Principais Habilidades</h3>
+                <div class="skills-grid">
+                    <div class="skill-category">
+                        <h4><i class="fas fa-video"></i> Edição de Vídeo</h4>
+                        <div class="skill-item"><i class="fas fa-check"></i> Adobe Premiere Pro</div>
+                        <div class="skill-item"><i class="fas fa-check"></i> Adobe After Effects</div>
+                        <div class="skill-item"><i class="fas fa-check"></i> DaVinci Resolve</div>
+                        <div class="skill-item"><i class="fas fa-check"></i> Vegas Pro</div>
+                    </div>
+                    <div class="skill-category">
+                        <h4><i class="fas fa-camera-retro"></i> Edição de Imagem</h4>
+                        <div class="skill-item"><i class="fas fa-check"></i> Adobe Photoshop</div>
+                        <div class="skill-item"><i class="fas fa-check"></i> Krita</div>
+                        <div class="skill-item"><i class="fas fa-check"></i> GIMP</div>
+                        <div class="skill-item"><i class="fas fa-check"></i> Canva</div>
+                    </div>
+                    <div class="skill-category">
+                        <h4><i class="fas fa-pencil-alt"></i> Ilustração Digital</h4>
+                        <div class="skill-item"><i class="fas fa-check"></i> Clip Studio Paint</div>
+                        <div class="skill-item"><i class="fas fa-check"></i> Paint Tool SAI</div>
+                        <div class="skill-item"><i class="fas fa-check"></i> (Outras ferramentas)</div>
+                    </div>
+                    <div class="skill-category">
+                        <h4><i class="fab fa-adobe"></i> Pacote Adobe</h4>
+                        <div class="skill-item"><i class="fas fa-check"></i> Ampla experiência geral</div>
+                    </div>
+                     <div class="skill-category">
+                        <h4><i class="fas fa-bullhorn"></i> Criação de Conteúdo & Redes Sociais</h4>
+                        <div class="skill-item"><i class="fas fa-check"></i> Vídeos dinâmicos e com ritmo</div>
+                        <div class="skill-item"><i class="fas fa-check"></i> Posts e textos para web</div>
+                        <div class="skill-item"><i class="fas fa-check"></i> Projetos culturais</div>
+                        <div class="skill-item"><i class="fas fa-check"></i> Instagram, TikTok, YouTube</div>
+                    </div>
+                    <div class="skill-category">
+                        <h4><i class="fas fa-cogs"></i> Tecnologia & IA</h4>
+                        <div class="skill-item"><i class="fas fa-check"></i> Automação de tarefas</div>
+                        <div class="skill-item"><i class="fas fa-check"></i> IA para criação de conteúdo</div>
+                        <div class="skill-item"><i class="fas fa-check"></i> Conhecimento em hardware/software</div>
+                    </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Galeria Avançada -->
-    <section id="gallery">
+    <section id="portfolio">
         <div class="section-header" data-aos="fade-up">
-            <h2 class="section-title">Meus Trabalhos</h2>
-            <p class="section-subtitle">Explore minha produção artística em diferentes mídias</p>
+            <h2 class="section-title">Portfólio</h2>
+            <p class="section-subtitle">Explore uma seleção dos meus trabalhos artísticos e projetos.</p>
         </div>
         
-        <div class="gallery-container">
+        <div class="portfolio-subsection" id="videos">
+            <h3 class="subsection-title" data-aos="fade-up">Vídeos</h3>
+            <div class="video-gallery" data-aos="fade-up" data-aos-delay="200">
+                <div class="video-item">
+                    <h4>Mimo a gente NUNCA esquece | 1º Ano FEC 2022</h4>
+                    <p>Edição, filmagem e direção de curta-metragem sobre história/sociologia para festival estudantil.</p>
+                    <div class="video-embed-container">
+                        <iframe src="https://www.youtube.com/embed/16" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                    </div>
+                </div>
+                <div class="video-item">
+                    <h4>Comporte-se! | 3º Ano FEC 2021</h4>
+                    <p>Edição e apoio criativo em curta-metragem para festival estudantil.</p>
+                    <div class="video-embed-container">
+                        <iframe src="https://www.youtube.com/embed/16" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                    </div>
+                </div>
+                <div class="video-item">
+                    <h4>Curta dos Curtas Final (2022) - Quem é o FEC?</h4>
+                    <p>Edição para o último curta e encerramento do projeto do festival.</p>
+                    <div class="video-embed-container">
+                        <iframe src="https://www.youtube.com/embed/16" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                    </div>
+                </div>
+                <div class="video-item">
+                    <h4>É coisa de menina | 2º Ano FEC 2020</h4>
+                    <p>Edição e apoio criativo para curta-metragem em festival estudantil.</p>
+                    <div class="video-embed-container">
+                        <iframe src="https://www.youtube.com/embed/16" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                    </div>
+                </div>
+                <div class="video-item">
+                    <h4>IA NA EDUCAÇÃO - Curta 2023</h4>
+                    <p>Edição de vídeo para trabalho escolar explorando o tema da Inteligência Artificial na educação.</p>
+                    <div class="video-embed-container">
+                        <iframe src="https://www.youtube.com/embed/16" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="gallery-container portfolio-subsection">
+             <h3 class="subsection-title" data-aos="fade-up">Galerias de Imagens</h3>
+            <p class="subsection-description" data-aos="fade-up">Navegue pelas minhas criações em arte digital, tradicional, fotografia e manipulação gráfica. <br/>(Você pode adicionar suas imagens editando o arquivo <code>assets/gallery-content.json</code> e colocando os arquivos de imagem na pasta <code>assets/images/</code>)</p>
             <div class="gallery-tabs" data-aos="fade-up" data-aos-delay="200">
-                <button class="gallery-tab active" data-section="video">Vídeo</button>
-                <button class="gallery-tab" data-section="digital">Arte Digital</button>
+                <button class="gallery-tab active" data-section="digital">Arte Digital</button>
                 <button class="gallery-tab" data-section="traditional">Arte Tradicional</button>
                 <button class="gallery-tab" data-section="graphic">Manipulação Gráfica</button>
                 <button class="gallery-tab" data-section="photo">Fotografia</button>
             </div>
             
-            <!-- Seção de Vídeos -->
-            <div class="gallery-section active" id="video-section" data-aos="fade-up" data-aos-delay="400">
-                <div class="swiper">
-                    <div class="swiper-wrapper" id="video-gallery">
-                        <!-- Itens serão carregados via JavaScript -->
-                    </div>
-                    <div class="swiper-button-next"></div>
-                    <div class="swiper-button-prev"></div>
-                </div>
-            </div>
-            
-            <!-- Seção de Arte Digital -->
-            <div class="gallery-section" id="digital-section">
+            <div class="gallery-section active" id="digital-section" data-aos="fade-up" data-aos-delay="400">
                 <div class="swiper">
                     <div class="swiper-wrapper" id="digital-gallery">
-                        <!-- Itens serão carregados via JavaScript -->
+                        <div class="swiper-slide-placeholder">Adicione suas artes digitais em <code>assets/gallery-content.json</code>.</div>
                     </div>
                     <div class="swiper-button-next"></div>
                     <div class="swiper-button-prev"></div>
                 </div>
             </div>
-            
-            <!-- Seção de Arte Tradicional -->
             <div class="gallery-section" id="traditional-section">
                 <div class="swiper">
                     <div class="swiper-wrapper" id="traditional-gallery">
-                        <!-- Itens serão carregados via JavaScript -->
+                         <div class="swiper-slide-placeholder">Adicione suas artes tradicionais em <code>assets/gallery-content.json</code>.</div>
                     </div>
                     <div class="swiper-button-next"></div>
                     <div class="swiper-button-prev"></div>
                 </div>
             </div>
-            
-            <!-- Seção de Manipulação Gráfica -->
             <div class="gallery-section" id="graphic-section">
                 <div class="swiper">
                     <div class="swiper-wrapper" id="graphic-gallery">
-                        <!-- Itens serão carregados via JavaScript -->
+                        <div class="swiper-slide-placeholder">Adicione suas manipulações gráficas em <code>assets/gallery-content.json</code>.</div>
                     </div>
                     <div class="swiper-button-next"></div>
                     <div class="swiper-button-prev"></div>
                 </div>
             </div>
-            
-            <!-- Seção de Fotografia -->
             <div class="gallery-section" id="photo-section">
                 <div class="swiper">
                     <div class="swiper-wrapper" id="photo-gallery">
-                        <!-- Itens serão carregados via JavaScript -->
+                        <div class="swiper-slide-placeholder">Adicione suas fotografias em <code>assets/gallery-content.json</code>.</div>
                     </div>
                     <div class="swiper-button-next"></div>
                     <div class="swiper-button-prev"></div>
@@ -151,11 +197,46 @@
         </div>
     </section>
 
-    <!-- Seção Contato -->
+    <section id="experiences">
+        <div class="section-header" data-aos="fade-up">
+            <h2 class="section-title">Experiências</h2>
+            <p class="section-subtitle">Minha trajetória em projetos e colaborações.</p>
+        </div>
+        <div class="experiences-container" data-aos="fade-up" data-aos-delay="200">
+            <div class="experience-item">
+                <h4>Edição de Imagem para Plataforma Web</h4>
+                <p><strong>Projeto:</strong> <a href="https://studiodcpc.com/" target="_blank" rel="noopener noreferrer">StudioDCPC</a></p>
+                <p>Responsável pela edição de imagens para a plataforma online.</p>
+            </div>
+            <div class="experience-item">
+                <h4>Festival Estudantil de Curtas-Metragens</h4>
+                <p>Participação ativa em múltiplas edições do festival, com os seguintes destaques (links para os vídeos na seção Portfólio):</p>
+                <ul>
+                    <li><strong>"Mimo a gente NUNCA esquece" (2022):</strong> Edição, filmagem e direção (História/Sociologia).</li>
+                    <li><strong>"Comporte-se!" (2021):</strong> Edição e apoio criativo.</li>
+                    <li><strong>"Curta dos Curtas Final - Quem é o FEC?" (2022):</strong> Edição do vídeo de encerramento do projeto.</li>
+                    <li><strong>"É coisa de menina" (2020):</strong> Edição e apoio criativo.</li>
+                </ul>
+            </div>
+            <div class="experience-item">
+                <h4>Edição de Vídeo para Projeto Escolar</h4>
+                 <p><strong>"IA NA EDUCAÇÃO - Curta" (2023):</strong> Edição de vídeo. (Link para o vídeo na seção Portfólio).</p>
+            </div>
+            <div class="experience-item">
+                <h4>Projetos Informais e Autorais</h4>
+                <p>Ao longo da minha jornada, realizei diversos projetos informais, incluindo:</p>
+                <ul>
+                    <li>Edição de vídeos e imagens para clientes e projetos na internet.</li>
+                    <li>Desenvolvimento de trabalhos autorais em arte digital, manipulação gráfica e outras mídias (visite as galerias no Portfólio).</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
     <section id="contact">
         <div class="section-header" data-aos="fade-up">
-            <h2 class="section-title">Entre em Contato</h2>
-            <p class="section-subtitle">Vamos conversar sobre arte, projetos ou colaborações</p>
+            <h2 class="section-title">Vamos Conversar?</h2>
+            <p class="section-subtitle">Interessado em colaborar, discutir um projeto ou oportunidade de estágio? Entre em contato!</p>
         </div>
         
         <div class="contact-container">
@@ -168,11 +249,15 @@
                     </div>
                     <div class="contact-item">
                         <i class="fab fa-instagram"></i>
-                        <a href="https://www.instagram.com/muri_lo.fm/" class="contact-link" target="_blank">@muri_lo.fm</a>
+                        <a href="https://www.instagram.com/muri_lo.fm/" class="contact-link" target="_blank" rel="noopener noreferrer">@muri_lo.fm</a>
                     </div>
                     <div class="contact-item">
                         <i class="fab fa-youtube"></i>
-                        <a href="https://www.youtube.com/@mu.ri.lo.f" class="contact-link" target="_blank">@mu.ri.lo.f</a>
+                        <a href="http://www.youtube.com/channel/UCmMI07Df2KqfdyJcI_onAWA" class="contact-link" target="_blank" rel="noopener noreferrer">Meu Canal no YouTube</a>
+                    </div>
+                     <div class="contact-item">
+                        <i class="fab fa-tiktok"></i>
+                        <a href="#" class="contact-link" target="_blank" rel="noopener noreferrer">@seu_tiktok (Atualize o link)</a>
                     </div>
                     <div class="contact-item">
                         <i class="fas fa-map-marker-alt"></i>
@@ -180,7 +265,7 @@
                     </div>
                     <div class="contact-item">
                         <i class="fas fa-university"></i>
-                        <span>UNESPAR - FAP | Artes Visuais</span>
+                        <span>UNESPAR – FAP | Artes Visuais (1º Ano)</span>
                     </div>
                 </div>
             </div>
@@ -205,41 +290,38 @@
         </div>
     </section>
 
-    <!-- Rodapé -->
     <footer>
         <div class="footer-content">
-            <a href="#" class="footer-logo">Murilo<span>Fangel</span></a>
+            <a href="#hero" class="footer-logo">Murilo<span>Fangel</span></a>
             <div class="footer-links">
                 <a href="#hero" class="footer-link">Início</a>
-                <a href="#about" class="footer-link">Sobre</a>
-                <a href="#gallery" class="footer-link">Galeria</a>
+                <a href="#about" class="footer-link">Sobre Mim</a>
+                <a href="#portfolio" class="footer-link">Portfólio</a>
+                <a href="#experiences" class="footer-link">Experiências</a>
                 <a href="#contact" class="footer-link">Contato</a>
             </div>
             <div class="social-links">
-                <a href="https://www.instagram.com/muri_lo.fm/" class="social-link" target="_blank"><i class="fab fa-instagram"></i></a>
-                <a href="https://www.youtube.com/@mu.ri.lo.f" class="social-link" target="_blank"><i class="fab fa-youtube"></i></a>
-                <a href="#contact-form" class="social-link"><i class="fab fa-whatsapp"></i></a>
-            </div>
-            <p class="copyright">© 2023 Murilo Fangel. Todos os direitos reservados.</p>
+                <a href="https://www.instagram.com/muri_lo.fm/" class="social-link" target="_blank" rel="noopener noreferrer"><i class="fab fa-instagram"></i></a>
+                <a href="http://www.youtube.com/channel/UCmMI07Df2KqfdyJcI_onAWA" class="social-link" target="_blank" rel="noopener noreferrer"><i class="fab fa-youtube"></i></a>
+                <a href="#" class="social-link" id="whatsappFooterLink"><i class="fab fa-whatsapp"></i></a>
+                 </div>
+            <p class="copyright">© 2025 Murilo Fangel. Todos os direitos reservados.</p>
         </div>
     </footer>
 
-    <!-- Lightbox -->
     <div class="lightbox" id="lightbox">
-        <span class="close-lightbox">&times;</span>
-        <img class="lightbox-content" id="lightboxImg">
+        <span class="close-lightbox" role="button" aria-label="Fechar lightbox">×</span>
+        <img class="lightbox-content" id="lightboxImg" alt="Imagem ampliada da galeria">
         <div class="lightbox-controls">
-            <button class="lightbox-btn" id="prevBtn"><i class="fas fa-chevron-left"></i></button>
-            <button class="lightbox-btn" id="nextBtn"><i class="fas fa-chevron-right"></i></button>
+            <button class="lightbox-btn" id="prevBtn" aria-label="Imagem anterior"><i class="fas fa-chevron-left"></i></button>
+            <button class="lightbox-btn" id="nextBtn" aria-label="Próxima imagem"><i class="fas fa-chevron-right"></i></button>
         </div>
     </div>
 
-    <!-- Dark Mode Toggle -->
-    <div class="mode-toggle" id="modeToggle">
+    <div class="mode-toggle" id="modeToggle" role="button" aria-label="Alternar modo claro/escuro">
         <i class="fas fa-moon"></i>
     </div>
 
-    <!-- Scripts -->
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.js"></script>
     <script src="js/script.js"></script>

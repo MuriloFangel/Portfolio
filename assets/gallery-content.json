@@ -8,9 +8,9 @@
             "description": "Ilustração digital feita no Clip Studio Paint."
         },
         {
-            "file": "images/digital/personagem_conceitual.png",
+            "file": "images/digital/personagem_conceitual.jpg",
             "type": "image",
-            "mediaType": "image/png",
+            "mediaType": "image/jpg",
             "title": "Design de Personagem",
             "description": "Conceito para um jogo."
         }

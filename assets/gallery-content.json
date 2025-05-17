@@ -1,46 +1,47 @@
 {
-    "videos": [
-        {
-            "file": "videos+Video foda+esse video é massa.mp4",
-            "type": "video",
-            "mediaType": "video/mp4",
-            "title": "Video foda",
-            "description": "esse video é massa"
-        },
-        {
-            "file": "videos+Video massa+esse video é massa demais.mp4",
-            "type": "video",
-            "mediaType": "video/mp4",
-            "title": "Video massa",
-            "description": "esse video é massa demais"
-        }
-    ],
     "digital": [
         {
-            "file": "digital+Arte Digital+ilustracao digital.jpg",
+            "file": "images/digital/minha_arte_digital_01.jpg",
             "type": "image",
             "mediaType": "image/jpeg",
-            "title": "Arte Digital",
-            "description": "ilustracao digital"
+            "title": "Exploração Cósmica",
+            "description": "Ilustração digital feita no Clip Studio Paint."
+        },
+        {
+            "file": "images/digital/personagem_conceitual.png",
+            "type": "image",
+            "mediaType": "image/png",
+            "title": "Design de Personagem",
+            "description": "Conceito para um jogo."
         }
     ],
     "traditional": [
         {
-            "file": "traditional+Desenho+Desenho do amor da minha vida.jpg",
+            "file": "images/traditional/desenho_grafite_rosto.jpg",
             "type": "image",
             "mediaType": "image/jpeg",
-            "title": "Desenho",
-            "description": "Desenho do amor da minha vida"
+            "title": "Retrato em Grafite",
+            "description": "Estudo de realismo."
         }
     ],
-    "graphic": [],
-    "photo": [
+    "graphic": [
         {
-            "file": "photo+Teste+Foto de teste.jpg",
+            "file": "images/graphic/manipulacao_surreal.jpg",
             "type": "image",
             "mediaType": "image/jpeg",
-            "title": "Teste",
-            "description": "Foto de teste"
+            "title": "Mundo dos Sonhos",
+            "description": "Manipulação gráfica no Photoshop."
         }
-    ]
+    ],
+    "photo": [
+        {
+            "file": "images/photo/paisagem_urbana_curitiba.jpg",
+            "type": "image",
+            "mediaType": "image/jpeg",
+            "title": "Curitiba Noturna",
+            "description": "Fotografia de longa exposição."
+        }
+    ],
+    "videos": [] // Esta seção de vídeos no JSON não está sendo usada para os vídeos do YouTube,
+                 // pois eles foram incorporados diretamente no HTML. Mantenha-a vazia ou remova-a se não for usar para vídeos locais.
 }

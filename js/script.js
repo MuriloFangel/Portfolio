@@ -1,16 +1,19 @@
 document.addEventListener('DOMContentLoaded', function() {
-    // Inicialização AOS (Animações)
-    AOS.init({ duration: 800, easing: 'ease-out-cubic', once: true });
+    // Inicialização AOS (Animações mais rápidas e snappier)
+    AOS.init({ 
+        duration: 600, // Mais rápido
+        easing: 'ease-out', 
+        once: true // Anima só uma vez para não ficar pesado
+    });
 
-    // Typewriter Effect (Textos atualizados)
+    // Typewriter Effect (Mais rápido)
     const typewriterElement = document.getElementById('typewriter-content');
     const texts = [
-        "Estudante de Artes Visuais (UNESPAR)",
-        "Edição de Vídeo & Motion",
-        "Ilustração Digital & Tradicional",
-        "Pós-produção Audiovisual",
-        "Adobe Premiere & After Effects",
-        "Clip Studio Paint"
+        "Edição de Vídeo",
+        "Design & Motion",
+        "Tecnologia & TI",
+        "Audiovisual",
+        "Hardware & Setup"
     ];
     
     let textIndex = 0;
@@ -27,7 +30,7 @@ document.addEventListener('DOMContentLoaded', function() {
             if (charIndex === 0) {
                 isDeleting = false;
                 textIndex = (textIndex + 1) % texts.length;
-                setTimeout(typeWriter, 500);
+                setTimeout(typeWriter, 300); // Pausa curta antes de começar a próxima
                 return;
             }
         } else {
@@ -35,11 +38,12 @@ document.addEventListener('DOMContentLoaded', function() {
             charIndex++;
             if (charIndex === currentText.length) {
                 isDeleting = true;
-                setTimeout(typeWriter, 2000);
+                setTimeout(typeWriter, 1500); // Fica parado lendo por 1.5s
                 return;
             }
         }
-        setTimeout(typeWriter, isDeleting ? 50 : 100);
+        // Velocidade de digitar (50ms) e apagar (30ms)
+        setTimeout(typeWriter, isDeleting ? 30 : 50);
     }
     typeWriter();
 
@@ -53,7 +57,6 @@ document.addEventListener('DOMContentLoaded', function() {
             mobileMenuBtn.innerHTML = mainNav.classList.contains('active') ? 
                 '<i class="fas fa-times"></i>' : '<i class="fas fa-bars"></i>';
         });
-        // Fechar ao clicar em link
         document.querySelectorAll('.nav-link').forEach(link => {
             link.addEventListener('click', () => {
                 mainNav.classList.remove('active');
@@ -73,12 +76,15 @@ document.addEventListener('DOMContentLoaded', function() {
             
             tab.classList.add('active');
             const sectionId = tab.dataset.section + '-section';
-            document.getElementById(sectionId).classList.add('active');
-            initSwipers(); // Reinicia swiper para recalcular tamanhos
+            const section = document.getElementById(sectionId);
+            if(section) {
+                section.classList.add('active');
+                initSwipers(); 
+            }
         });
     });
 
-    // Carregamento da Galeria (JSON)
+    // Carregamento da Galeria
     async function loadGalleryItems() {
         try {
             const response = await fetch('assets/gallery-content.json');
@@ -87,9 +93,9 @@ document.addEventListener('DOMContentLoaded', function() {
             for (const [category, items] of Object.entries(galleryData)) {
                 const wrapper = document.getElementById(`${category}-gallery`);
                 if (!wrapper) continue;
-                
+
                 if (items.length === 0) {
-                    wrapper.innerHTML = `<div class="swiper-slide"><p style="color:var(--muted)">Em breve.</p></div>`;
+                    wrapper.innerHTML = `<div class="swiper-slide"><p style="color:#8b949e">Em breve.</p></div>`;
                     continue;
                 }
 
@@ -97,45 +103,55 @@ document.addEventListener('DOMContentLoaded', function() {
                     <div class="swiper-slide">
                         <img src="assets/${item.file}" 
                              alt="${item.title}" 
-                             loading="lazy"
-                             onclick="openLightbox(this)">
+                             loading="lazy">
                     </div>
                 `).join('');
             }
             initSwipers();
+            setupLightbox(); // Configura o lightbox após carregar imagens
         } catch (error) {
             console.error('Erro ao carregar galeria:', error);
         }
     }
     
-    // Lightbox Simples
-    window.openLightbox = function(img) {
+    // Lightbox Logic
+    function setupLightbox() {
         const lightbox = document.getElementById('lightbox');
         const lightboxImg = document.getElementById('lightboxImg');
-        lightboxImg.src = img.src;
-        lightbox.style.display = 'flex';
-        setTimeout(() => lightbox.style.opacity = '1', 10);
-    }
-    
-    document.querySelector('.close-lightbox').addEventListener('click', () => {
-        const lightbox = document.getElementById('lightbox');
-        lightbox.style.opacity = '0';
-        setTimeout(() => lightbox.style.display = 'none', 300);
-    });
+        const closeBtn = document.querySelector('.close-lightbox');
+        
+        // Adiciona evento de clique em todas as imagens dos swipers
+        document.querySelectorAll('.swiper-slide img').forEach(img => {
+            img.addEventListener('click', () => {
+                lightboxImg.src = img.src;
+                lightbox.style.display = 'flex'; // Mostra flex
+            });
+        });
 
-    // Inicializar Swiper
+        // Fechar
+        closeBtn.addEventListener('click', () => {
+            lightbox.style.display = 'none';
+        });
+        
+        lightbox.addEventListener('click', (e) => {
+            if(e.target === lightbox) lightbox.style.display = 'none';
+        });
+    }
+
     function initSwipers() {
         document.querySelectorAll('.swiper').forEach(el => {
+            // Verifica se já existe instância e destroi para recriar (evita bugs)
+            if(el.swiper) el.swiper.destroy(true, true);
+            
             new Swiper(el, {
                 slidesPerView: 'auto',
                 centeredSlides: true,
-                spaceBetween: 30,
-                loop: false,
+                spaceBetween: 20,
+                grabCursor: true,
                 navigation: {
                     nextEl: el.querySelector('.swiper-button-next'),
                     prevEl: el.querySelector('.swiper-button-prev'),
                 },
-                grabCursor: true
             });
         });
     }

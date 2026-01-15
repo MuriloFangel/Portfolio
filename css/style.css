@@ -9,7 +9,7 @@
     --accent-gradient: linear-gradient(135deg, #2f81f7 0%, #38bdf8 100%);
     --border: rgba(255,255,255,0.08);
     
-    /* Aumentei o espaçamento padrão */
+    /* Espaçamento padrão */
     --section-pad: 6rem 5%;
     --radius: 16px;
 }
@@ -21,7 +21,7 @@ body {
     font-family: 'Inter', sans-serif;
     background-color: var(--bg);
     color: var(--text);
-    line-height: 1.6; /* Aumentei a altura da linha para melhor leitura */
+    line-height: 1.6; 
     overflow-x: hidden;
     background-image: radial-gradient(circle at 50% 0%, rgba(47, 129, 247, 0.1) 0%, transparent 50%);
     background-attachment: fixed;
@@ -38,7 +38,7 @@ h1, h2, h3, h4 {
 .fixed-header {
     position: fixed; top: 0; width: 100%; height: 70px;
     display: flex; justify-content: space-between; align-items: center;
-    padding: 0 5%; background: rgba(15, 17, 21, 0.95); /* Mais escuro para leitura */
+    padding: 0 5%; background: rgba(15, 17, 21, 0.95);
     backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px);
     border-bottom: 1px solid var(--border); z-index: 1000;
 }
@@ -69,56 +69,56 @@ h1, h2, h3, h4 {
 .btn-primary { background: var(--accent-gradient); color: white; box-shadow: 0 4px 15px rgba(47, 129, 247, 0.3); }
 .btn-secondary { background: transparent; border: 1px solid var(--border); color: var(--text); }
 
-/* SEÇÕES GERAIS */
+/* SEÇÕES GERAIS - Espaçamento */
 section { padding: var(--section-pad); }
-.section-title { font-size: 2.2rem; text-align: center; margin-bottom: 4rem; /* Mais espaço abaixo do título */ }
+.section-title { font-size: 2.2rem; text-align: center; margin-bottom: 4rem; }
 
-/* CORREÇÃO DE ESPAÇAMENTOS ESPECÍFICOS (SOBRE MIM) */
+/* CORREÇÃO DE ESPAÇAMENTOS (TÍTULOS COLADOS) */
 .about-text h3 {
-    margin-bottom: 1.5rem; /* Afasta o título do texto */
+    margin-bottom: 2.5rem; /* MUITO MAIS ESPAÇO AQUI */
     color: var(--accent);
-    font-size: 1.5rem;
+    font-size: 1.6rem;
 }
 .about-text p {
-    margin-bottom: 1.5rem; /* Afasta os parágrafos uns dos outros */
+    margin-bottom: 1.5rem;
     color: var(--text);
     opacity: 0.9;
 }
 
 /* Espaço extra antes das Competências */
 .skills-section {
-    margin-top: 4rem; 
+    margin-top: 5rem; /* Separa bem o texto de sobre mim dos cards */
 }
 .skills-title {
-    margin-bottom: 2rem;
-    font-size: 1.5rem;
+    margin-bottom: 3rem; /* Separa o título 'Competências' dos cards */
+    font-size: 1.6rem;
     text-align: center;
 }
 
 /* CARDS */
 .skills-grid, .video-gallery, .experiences-container {
-    display: grid; gap: 2rem; /* Mais espaço entre os cards */
+    display: grid; gap: 2.5rem; /* Mais espaço entre um card e outro */
 }
 .skill-category, .video-item, .experience-item, .contact-item, .contact-form {
     background: var(--card-bg);
     border: 1px solid var(--border);
     border-radius: var(--radius);
-    padding: 2rem; /* Padding interno generoso */
+    padding: 2.5rem; /* Padding interno MAIOR para o texto não colar na borda */
     backdrop-filter: blur(10px);
 }
 
 /* Títulos dentro dos cards */
 .skill-category h4, .video-item h4, .experience-item h4 {
     color: white; 
-    margin-bottom: 1.5rem; /* Afasta o título da lista */
+    margin-bottom: 2rem; /* Título do card longe da lista */
     border-bottom: 1px solid var(--border); 
-    padding-bottom: 0.8rem; 
-    font-size: 1.2rem;
+    padding-bottom: 1rem; 
+    font-size: 1.3rem;
 }
 
 .skill-item { 
     display: flex; align-items: center; 
-    margin-bottom: 1rem; /* Mais espaço entre itens da lista */
+    margin-bottom: 1.2rem; 
     color: var(--text); 
 }
 .skill-item i { color: var(--accent); margin-right: 1rem; }
@@ -131,7 +131,7 @@ section { padding: var(--section-pad); }
 .video-embed-container iframe { position: absolute; top: 0; left: 0; width: 100%; height: 100%; }
 
 /* Experiências Texto */
-.proj-name { color: var(--accent); font-weight: 600; margin-bottom: 1rem; font-size: 1rem; display: block; }
+.proj-name { color: var(--accent); font-weight: 600; margin-bottom: 1rem; font-size: 1.1rem; display: block; }
 
 /* Galeria */
 .gallery-tabs { display: flex; justify-content: center; gap: 0.8rem; margin-bottom: 3rem; flex-wrap: wrap; }
@@ -154,8 +154,9 @@ footer { text-align: center; padding: 3rem 0; color: var(--muted); border-top: 1
 .contact-item { padding: 1.5rem; }
 .form-control { width: 100%; padding: 1rem; background: rgba(0,0,0,0.3); border: 1px solid var(--border); border-radius: 8px; color: white; margin-bottom: 1.5rem; }
 
+/* Ajustes Específicos para Celular */
 @media (max-width: 768px) {
-    :root { --section-pad: 4rem 1.5rem; } /* Margem lateral segura no mobile */
+    :root { --section-pad: 4rem 1.5rem; } 
     
     .main-nav {
         position: fixed; top: 70px; left: -100%; width: 100%; height: calc(100vh - 70px);
@@ -165,8 +166,10 @@ footer { text-align: center; padding: 3rem 0; color: var(--muted); border-top: 1
     .main-nav.active { left: 0; }
     .mobile-menu-btn { display: block; }
     
-    /* Ajustes críticos de espaçamento mobile */
-    .about-text h3 { margin-top: 0; }
+    /* Forçando espaço no mobile */
+    .about-text h3 { margin-top: 1rem; margin-bottom: 2rem; }
+    .skills-title { margin-top: 1rem; margin-bottom: 2rem; }
+    
     .hero-title { font-size: 2.8rem; }
     .swiper { height: 280px; }
 }

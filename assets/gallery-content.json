@@ -3,45 +3,39 @@
         {
             "file": "images/digital/minha_arte_digital_01.jpg",
             "type": "image",
-            "mediaType": "image/jpeg",
-            "title": "Exploração Cósmica",
-            "description": "Ilustração digital feita no Clip Studio Paint."
+            "title": "Exploração Digital",
+            "description": "Estudo de composição no Clip Studio Paint"
         },
         {
             "file": "images/digital/personagem_conceitual.jpg",
             "type": "image",
-            "mediaType": "image/jpg",
-            "title": "Design de Personagem",
-            "description": "Conceito para um jogo."
+            "title": "Conceito Surrealista",
+            "description": "Concept art para personagem"
         }
     ],
     "traditional": [
         {
             "file": "images/traditional/desenho_grafite_rosto.jpg",
             "type": "image",
-            "mediaType": "image/jpeg",
             "title": "Retrato em Grafite",
-            "description": "Estudo de realismo."
+            "description": "Estudo de luz e sombra tradicional"
         }
     ],
     "graphic": [
         {
             "file": "images/graphic/manipulacao_surreal.jpg",
             "type": "image",
-            "mediaType": "image/jpeg",
-            "title": "Mundo dos Sonhos",
-            "description": "Manipulação gráfica no Photoshop."
+            "title": "Manipulação Gráfica",
+            "description": "Composição mista surrealista"
         }
     ],
     "photo": [
         {
             "file": "images/photo/paisagem_urbana_curitiba.jpg",
             "type": "image",
-            "mediaType": "image/jpeg",
-            "title": "Curitiba Noturna",
-            "description": "Fotografia de longa exposição."
+            "title": "Paisagem Urbana",
+            "description": "Fotografia noturna"
         }
     ],
-    "videos": [] // Esta seção de vídeos no JSON não está sendo usada para os vídeos do YouTube,
-                 // pois eles foram incorporados diretamente no HTML. Mantenha-a vazia ou remova-a se não for usar para vídeos locais.
+    "videos": []
 }
